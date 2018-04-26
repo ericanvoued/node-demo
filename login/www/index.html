@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登陆注册</title>
+</head>
+<body>
+<input type="text" id="user">
+<input type="password" id="pass">
+<input type="button" id="regs"  value="注册">
+<input type="button" id="log"  value="登陆">
+
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script>
+
+    $('#regs').on('click',function () {
+        $.ajax({
+            url:'/user',
+            data:{
+                act:'reg',
+                user: $('#user').val(),
+                pass: $('#pass').val()
+            },
+            type:'get',
+            succeed:function (str) {
+                console.log(str)
+                var data = eval('('+str+')')
+                if (data.ok){
+                    alert('注册成功')
+                } else {
+                    alert(data.msg)
+                }
+            },
+            error:function () {
+
+            }
+        })
+    })
+    $('#log').on('click',function () {
+        $.ajax({
+            url:'/user',
+            data:{
+                act:'login',
+                user: $('#user').val(),
+                pass: $('#pass').val()
+            },
+            type:'get',
+            succeed:function (str) {
+                console.log(str)
+                var data = eval('('+str+')')
+                if (data.ok){
+                    alert('登陆成功')
+                } else {
+                    alert(data.msg)
+                }
+            },
+            error:function () {
+
+            }
+        })
+    })
+</script>
+
+</body>
+</html>
