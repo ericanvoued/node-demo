@@ -45,8 +45,8 @@ server.use(cookieSession(
 ))
 
 server.use('/', function (req, res) {
-    req.secret = 'wewewesad';
-    res.cookie('user', 'eric2', {path: '/', maxAge: 30 * 24 * 3600 * 1000});//签名，防篡改
+    // req.secret = 'wewewesad';
+    // res.cookie('user', 'eric2', {path: '/aaa', maxAge: 30 * 24 * 3600 * 1000});//签名，防篡改
     // res.cookie('user', 'eric2', {path: '/', maxAge: 30 * 24 * 3600 * 1000, signed: true});//签名，防篡改
     // console.log(req.cookies)//输出没有签过名的cookie
     // console.log(req.signedCookies)//输出签过名的cookie，cookie空间小，省着用
@@ -61,7 +61,7 @@ server.use('/', function (req, res) {
     res.send('ok');
 })
 
-server.listen(8289);
+server.listen(8280);
 
 
 

@@ -1,12 +1,39 @@
 html
     head
         style
-        script(src='a.js')
+        script
+            include a.js
+        //script(src='a.js').
+        //    var acrive =document.getElementsByClassName('active')
+        //    | var acrive =document.getElementsByClassName('active')
     body
-        div
+        | abc
+        div(style=json)
+
+            span(class=arr)
+
             ul
+                li #{name}
                 li
-                li
-                li
-                li
-        div
+                -var a=2
+                -var b=3
+                li #{a + b}
+                li=arr
+
+                -for(var i=0;i<arr.length;i++)
+                    li=arr[i]
+        div!=content
+        -var a=0;
+        case a
+            when 0
+                div aaa
+            when 1
+                div bbb
+            default
+                div ccc
+
+
+
+
+
+

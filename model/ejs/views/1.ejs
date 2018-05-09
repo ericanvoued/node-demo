@@ -9,5 +9,14 @@
 </head>
 <body>
     <%= name %>
+
+    <%
+        var str = '<div></div>'
+    %>
+
+    <% include ./a.txt %>
+
+    <% str %>
+    <%- str %>
 </body>
 </html>
